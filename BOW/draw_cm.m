@@ -28,6 +28,8 @@ set(gca,'xticklabel',tick,'XAxisLocation','top');
 
 rotateXLabels(gca, 315 );% Ðý×ªXÖálabel
 
+set(gca, 'XTick', 1:num_class, 'YTick', 1:num_class); % to handle a bug
+
 set(gca,'yticklabel',tick);
 
 

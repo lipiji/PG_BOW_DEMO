@@ -1,7 +1,7 @@
 %% Script to perform BOW-based image classification demo
 % ========================================================================
 % Image Classification using Bag of Words and Spatial Pyramid BoW
-% Created by Piji Li (peegeelee@gmail.com)  
+% Created by Piji Li (pagelee.sd@gmail.com)  
 % Blog: иЇзг http://www.zhizhihu.com
 % QQ: 379115886
 % IRLab. : http://ir.sdu.edu.cn     
@@ -55,7 +55,7 @@ do_p_classification__rbf_svm
 
 %% pyramid bow histogram intersection kernel
 do_p_classification__inter_svm
-%show_results_script
+show_results_script
 
 %% AdaBoost
 ada_opts.T = 100;

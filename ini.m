@@ -1,6 +1,6 @@
 % ========================================================================
 % Image Classification using Bag of Words and Spatial Pyramid BoW
-% Created by Piji Li (peegeelee@gmail.com)  
+% Created by Piji Li (pagelee.sd@gmail.com)  
 % Blog: http://www.zhizhihu.com
 % QQ: 379115886
 % IRLab. : http://ir.sdu.edu.cn     
