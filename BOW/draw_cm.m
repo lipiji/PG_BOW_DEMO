@@ -12,7 +12,7 @@ function draw_cm(mat,tick,num_class)
 %  参数：mat-矩阵；tick-要在坐标轴上显示的label向量，例如{'label_1','label_2'...}
 %
 %%
-imagesc(mat);            %# 绘彩色图
+imagesc(1:num_class,1:num_class,mat);            %# 绘彩色图
 colormap(flipud(gray));  %# 转成灰度图，因此高value是渐黑色的，低value是渐白的
 
 textStrings = num2str(mat(:),'%0.2f');  
@@ -25,11 +25,11 @@ textColors = repmat(mat(:) > midValue,1,3);
 set(hStrings,{'Color'},num2cell(textColors,2));  %# Change the text colors
 
 set(gca,'xticklabel',tick,'XAxisLocation','top');
-
-rotateXLabels(gca, 315 );% 旋转X轴label
-
 set(gca, 'XTick', 1:num_class, 'YTick', 1:num_class); % to handle a bug
-
 set(gca,'yticklabel',tick);
+
+%% rotate x label
+rotateXLabels(gca, 315 );
+
 
 
