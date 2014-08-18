@@ -8,12 +8,12 @@
 % 10/24/2011
 function draw_cm(mat,tick,num_class)
 %%
-%  ×÷Õß£º Ø§×Ó  zhizhihu.com
-%  ²ÎÊı£ºmat-¾ØÕó£»tick-ÒªÔÚ×ø±êÖáÉÏÏÔÊ¾µÄlabelÏòÁ¿£¬ÀıÈç{'label_1','label_2'...}
+%  ä½œè€…ï¼š ä¸•å­  zhizhihu.com
+%  å‚æ•°ï¼šmat-çŸ©é˜µï¼›tick-è¦åœ¨åæ ‡è½´ä¸Šæ˜¾ç¤ºçš„labelå‘é‡ï¼Œä¾‹å¦‚{'label_1','label_2'...}
 %
 %%
-imagesc(1:num_class,1:num_class,mat);            %# »æ²ÊÉ«Í¼
-colormap(flipud(gray));  %# ×ª³É»Ò¶ÈÍ¼£¬Òò´Ë¸ßvalueÊÇ½¥ºÚÉ«µÄ£¬µÍvalueÊÇ½¥°×µÄ
+imagesc(1:num_class,1:num_class,mat);            % ç»˜å½©è‰²å›¾
+colormap(flipud(gray));  % è½¬æˆç°åº¦å›¾ï¼Œå› æ­¤é«˜valueæ˜¯æ¸é»‘è‰²çš„ï¼Œä½valueæ˜¯æ¸ç™½çš„
 
 textStrings = num2str(mat(:),'%0.2f');  
 textStrings = strtrim(cellstr(textStrings)); 
@@ -21,8 +21,8 @@ textStrings = strtrim(cellstr(textStrings));
 hStrings = text(x(:),y(:),textStrings(:), 'HorizontalAlignment','center');
 midValue = mean(get(gca,'CLim')); 
 textColors = repmat(mat(:) > midValue,1,3); 
-%¸Ä±ätestµÄÑÕÉ«£¬ÔÚºÚcellÀïÏÔÊ¾°×É«
-set(hStrings,{'Color'},num2cell(textColors,2));  %# Change the text colors
+%æ”¹å˜testçš„é¢œè‰²ï¼Œåœ¨é»‘cellé‡Œæ˜¾ç¤ºç™½è‰²
+set(hStrings,{'Color'},num2cell(textColors,2));  % Change the text colors
 
 set(gca,'xticklabel',tick,'XAxisLocation','top');
 set(gca, 'XTick', 1:num_class, 'YTick', 1:num_class); % to handle a bug
