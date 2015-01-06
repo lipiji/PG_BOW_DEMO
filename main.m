@@ -2,14 +2,16 @@
 % ========================================================================
 % Image Classification using Bag of Words and Spatial Pyramid BoW
 % Created by Piji Li (pagelee.sd@gmail.com)  
-% Blog: иЇзг http://www.zhizhihu.com
-% QQ: 379115886
+% Blog: http://www.zhizhihu.com
+% Weibo: http://www.weibo.com/pagecn
 % IRLab. : http://ir.sdu.edu.cn     
 % Shandong University,Jinan,China
 % 10/24/2011
+
 %% initialize the settings
 display('*********** start *********')
 clc;
+clear;
 ini;
 detect_opts=[];descriptor_opts=[];dictionary_opts=[];assignment_opts=[];ada_opts=[];
 
@@ -51,21 +53,8 @@ do_classification_rbf_svm
 %% histogram intersection kernel
 do_classification_inter_svm
 %% pyramid bow rbf
-do_p_classification__rbf_svm   
+do_p_classification_rbf_svm   
 
 %% pyramid bow histogram intersection kernel
-do_p_classification__inter_svm
+do_p_classification_inter_svm
 show_results_script
-
-%% AdaBoost
-ada_opts.T = 100;
-ada_opts.weaklearner  = 0;
-ada_opts.epsi = 0.2;
-ada_opts.lambda = 1e-3;
-ada_opts.max_ite = 3000;
-ada_opts.bow = assignment_opts.name;
-ada_opts.pbow = pyramid_opts.name;
-do_classification_adaboost_bow(pg_opts,ada_opts);
-%do_classification_adaboost_pyramid_bow(pg_opts,ada_opts);
-
-

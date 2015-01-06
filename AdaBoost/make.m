@@ -1,2 +1,0 @@
-mex gentleboost_predict.c
-mex gentleboost_model.c

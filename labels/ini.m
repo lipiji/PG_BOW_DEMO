@@ -1,0 +1,1 @@
+pre_data_path='/misc/projdata4/info_fil/pjli/workspace/matlab/PG_BOW_DEMO/images/';

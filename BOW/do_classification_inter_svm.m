@@ -1,12 +1,4 @@
-% ========================================================================
-% Image Classification using Bag of Words and Spatial Pyramid BoW
-% Created by Piji Li (peegeelee@gmail.com)  
-% Blog: http://www.zhizhihu.com
-% QQ: 379115886
-% IRLab. : http://ir.sdu.edu.cn     
-% Shandong University,Jinan,China
-% 10/24/2011
-%% classification script using SVM
+% classification script using SVM
 
 fprintf('\nClassification using histogram intersection kernel svm\n');
 % load the BOW representations, the labels, and the train and test set

@@ -9,25 +9,17 @@ CXX ?= g++
 CFLAGS = -Wall -Wconversion -O3 -fPIC -I$(MATLABDIR)/extern/include -I..
 
 MEX = $(MATLABDIR)/bin/mex
-MEX_OPTION = CC\#$(CXX) CXX\#$(CXX) CFLAGS\#"$(CFLAGS)" CXXFLAGS\#"$(CFLAGS)"
+MEX_OPTION = CC="$(CXX)" CXX="$(CXX)" CFLAGS="$(CFLAGS)" CXXFLAGS="$(CFLAGS)"
 # comment the following line if you use MATLAB on 32-bit computer
 MEX_OPTION += -largeArrayDims
 MEX_EXT = $(shell $(MATLABDIR)/bin/mexext)
-
-OCTAVEDIR ?= /usr/include/octave
-OCTAVE_MEX = env CC=$(CXX) mkoctfile
-OCTAVE_MEX_OPTION = --mex
-OCTAVE_MEX_EXT = mex
-OCTAVE_CFLAGS = -Wall -O3 -fPIC -I$(OCTAVEDIR) -I..
 
 all:	matlab
 
 matlab:	binary
 
 octave:
-	@make MEX="$(OCTAVE_MEX)" MEX_OPTION="$(OCTAVE_MEX_OPTION)" \
-	MEX_EXT="$(OCTAVE_MEX_EXT)" CFLAGS="$(OCTAVE_CFLAGS)" \
-	binary
+	@echo "please type make under Octave"
 
 binary: svmpredict.$(MEX_EXT) svmtrain.$(MEX_EXT) libsvmread.$(MEX_EXT) libsvmwrite.$(MEX_EXT)
 

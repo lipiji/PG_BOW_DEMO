@@ -1,9 +1,9 @@
 ========================================================================
 Image Classification using Bag of Words and Spatial Pyramid BoW
-Created by Piji Li, 丕子
-Email: peegeelee@gmail.com
+Created by Piji Li
+Email: pagelee.sd@gmail.com
 Blog: http://www.zhizhihu.com
-QQ: 472308749
+Weibo: http://www.weibo.com/pagecn
 10/24/2011
 
 Some code are from:
@@ -13,8 +13,11 @@ Pyramid Matching for Recognizing Natural Scene Categories," CVPR 2006.
 
 ========================================================================
 
+Use:
+1, follow labes/readme to prepare data
+2, go to libsvm/: make
+3, modify ini.m: rootpath=your demo path, and then run main.m.
 
-Just modify the ini.m: rootpath=your demo path, and then run main.m.
 
 The BOW and Dictionary is in the dir:/data/global, size of BOW_sift.mat is (DictionarySize * #images).
 Size of dictionary.mat is (DictionarySize *  dim of features).spatial_pyramid.mat is the Spatial Pyramid BoW.
@@ -24,10 +27,10 @@ In /data/local is the sift features for each images.
 
 ========================================================================
 Classification using BOW rbf_svm
-Accuracy = 75.8333% (91/120) (classification)
+Accuracy = 76.6667% (92/120) (classification)
 
 Classification using histogram intersection kernel svm
-Accuracy = 82.5% (99/120) (classification)
+Accuracy = 81.6667% (98/120) (classification)
 
 Classification using Pyramid BOW rbf_svm
 Accuracy = 82.5% (99/120) (classification)

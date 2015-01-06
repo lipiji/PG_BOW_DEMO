@@ -16,12 +16,18 @@ void exit_with_help()
 	);
 }
 
+static void fake_answer(int nlhs, mxArray *plhs[])
+{
+	int i;
+	for(i=0;i<nlhs;i++)
+		plhs[i] = mxCreateDoubleMatrix(0, 0, mxREAL);
+}
+
 void libsvmwrite(const char *filename, const mxArray *label_vec, const mxArray *instance_mat)
 {
 	FILE *fp = fopen(filename,"w");
-	int i, k, low, high, l;
-	mwIndex *ir, *jc;
-	int label_vector_row_num;
+	mwIndex *ir, *jc, k, low, high;
+	size_t i, l, label_vector_row_num;
 	double *samples, *labels;
 	mxArray *instance_mat_col; // instance sparse matrix in column format
 
@@ -45,8 +51,8 @@ void libsvmwrite(const char *filename, const mxArray *label_vec, const mxArray *
 	}
 
 	// the number of instance
-	l = (int) mxGetN(instance_mat_col);
-	label_vector_row_num = (int) mxGetM(label_vec);
+	l = mxGetN(instance_mat_col);
+	label_vector_row_num = mxGetM(label_vec);
 
 	if(label_vector_row_num!=l)
 	{
@@ -64,9 +70,9 @@ void libsvmwrite(const char *filename, const mxArray *label_vec, const mxArray *
 	{
 		fprintf(fp,"%g", labels[i]);
 
-		low = (int) jc[i], high = (int) jc[i+1];
+		low = jc[i], high = jc[i+1];
 		for(k=low;k<high;k++)
-			fprintf(fp," %ld:%g", ir[k]+1, samples[k]);		
+			fprintf(fp," %lu:%g", (size_t)ir[k]+1, samples[k]);		
 
 		fprintf(fp,"\n");
 	}
@@ -77,7 +83,14 @@ void libsvmwrite(const char *filename, const mxArray *label_vec, const mxArray *
 
 void mexFunction( int nlhs, mxArray *plhs[],
 		int nrhs, const mxArray *prhs[] )
-{	
+{
+	if(nlhs > 0)
+	{
+		exit_with_help();
+		fake_answer(nlhs, plhs);
+		return;
+	}
+	
 	// Transform the input Matrix to libsvm format
 	if(nrhs == 3)
 	{

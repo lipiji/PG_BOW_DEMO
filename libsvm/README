@@ -91,6 +91,7 @@ matlab> model = svmtrain(training_label_vector, training_instance_matrix [, 'lib
             A string of training options in the same format as that of LIBSVM.
 
 matlab> [predicted_label, accuracy, decision_values/prob_estimates] = svmpredict(testing_label_vector, testing_instance_matrix, model [, 'libsvm_options']);
+matlab> [predicted_label] = svmpredict(testing_label_vector, testing_instance_matrix, model [, 'libsvm_options']);
 
         -testing_label_vector:
             An m by 1 vector of prediction labels. If labels of test
@@ -115,6 +116,7 @@ totalSV, rho, Label, ProbA, ProbB, nSV, sv_coef, SVs]:
         -totalSV: total #SV
         -rho: -b of the decision function(s) wx+b
         -Label: label of each class; empty for regression/one-class SVM
+        -sv_indices: values in [1,...,num_traning_data] to indicate SVs in the training set
         -ProbA: pairwise probability information; empty if -b 0 or in one-class SVM
         -ProbB: pairwise probability information; empty if -b 0 or in one-class SVM
         -nSV: number of SVs for each class; empty for regression/one-class SVM
@@ -160,7 +162,7 @@ of svmtrain or svmpredict.
 
 A matlab function libsvmwrite writes Matlab matrix to a file in LIBSVM format:
 
-libsvmwrite('data.txt', label_vector, instance_matrix]
+libsvmwrite('data.txt', label_vector, instance_matrix)
 
 The instance_matrix must be a sparse matrix. (type must be double)
 For 32bit and 64bit MATLAB on Windows, pre-built binary files are ready 
@@ -240,4 +242,4 @@ http://www.csie.ntu.edu.tw/~cjlin/libsvm
 For any question, please contact Chih-Jen Lin <cjlin@csie.ntu.edu.tw>,
 or check the FAQ page:
 
-http://www.csie.ntu.edu.tw/~cjlin/libsvm/faq.html#/Q9:_MATLAB_interface
+http://www.csie.ntu.edu.tw/~cjlin/libsvm/faq.html#/Q10:_MATLAB_interface

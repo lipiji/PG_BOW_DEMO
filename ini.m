@@ -2,18 +2,17 @@
 % Image Classification using Bag of Words and Spatial Pyramid BoW
 % Created by Piji Li (pagelee.sd@gmail.com)  
 % Blog: http://www.zhizhihu.com
-% QQ: 379115886
+% Weibo: http://www.weibo.com/pagecn
 % IRLab. : http://ir.sdu.edu.cn     
 % Shandong University,Jinan,China
 % 10/24/2011
 
 clear pg_opts
-rootpath='E:\workspace\matlab\work\PG_BOW_DEMO\';
+rootpath='/misc/projdata4/info_fil/pjli/workspace/matlab/PG_BOW_DEMO/';
 
 %%
 addpath libsvm;
 addpath BOW;
-addpath AdaBoost;
 
 %% change these paths to point to the image, data and label location
 images_set=strcat(rootpath,'images');
@@ -40,24 +39,17 @@ pg_opts.labels=sprintf('%s/labels.mat',pg_opts.labelspath);
 pg_opts.image_names=sprintf('%s/image_names.mat',pg_opts.labelspath);
 
 % Classes
-pg_opts.classes={...
-    'Phoning'
-    'PlayingGuitar'
-    'RidingBike'
-    'RidingHorse'
-    'Running'
-    'Shooting'
-    };
-
-pg_opts.nclasses=length(pg_opts.classes);
+pg_opts.classes = load([pg_opts.labelspath,'/classes.mat']);
+pg_opts.classes = pg_opts.classes.classes;
+pg_opts.nclasses = length(pg_opts.classes);
 
 load(sprintf('%s',pg_opts.labels));
-pg_opts.nimages=size(labels,1);
+pg_opts.nimages = size(labels,1);
 
 load(pg_opts.trainset);
 load(pg_opts.testset);
-pg_opts.ntraning =  length(find(trainset==1));
-pg_opts.ntesting =  length(find(testset==1));
+pg_opts.ntraning = length(find(trainset==1));
+pg_opts.ntesting = length(find(testset==1));
 
 %% creat the directory to save data 
 MakeDataDirectory(pg_opts);

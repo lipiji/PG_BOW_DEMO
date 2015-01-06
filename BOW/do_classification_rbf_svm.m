@@ -1,12 +1,4 @@
-% ========================================================================
-% Image Classification using Bag of Words and Spatial Pyramid BoW
-% Created by Piji Li (peegeelee@gmail.com)  
-% Blog: http://www.zhizhihu.com
-% QQ: 379115886
-% IRLab. : http://ir.sdu.edu.cn     
-% Shandong University,Jinan,China
-% 10/24/2011
-%% classification script using SVM
+% classification script using SVM
 
 fprintf('\nClassification using BOW rbf_svm\n');
 % load the BOW representations, the labels, and the train and test set
@@ -43,7 +35,7 @@ bestcv=0;
 
 
 options=sprintf('-s 0 -t 2 -c %f -b 1 -g %f -q',bestc,bestg);
-model=svmtrain(train_labels, train_data,options);
+model=svmtrain(train_labels, train_data, options);
 
 
 [predict_label, accuracy , dec_values] = svmpredict(test_labels,test_data, model,'-b 1');
