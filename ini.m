@@ -8,7 +8,7 @@
 % 10/24/2011
 
 clear pg_opts
-rootpath='/misc/projdata4/info_fil/pjli/workspace/matlab/PG_BOW_DEMO/';
+rootpath='/home/lipiji/PG_BOW_DEMO/';
 
 %%
 addpath libsvm;
