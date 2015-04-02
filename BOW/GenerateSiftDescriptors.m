@@ -59,14 +59,10 @@ if(descriptor_flag)
         features.hgt = hgt;
         features.patchSize=patchSize;
         
-        
-        
-        image_dir=sprintf('%s/%s/',opts.localdatapath,num2string(f,3)); % location descriptor
+        image_dir=sprintf('%s/%s/',opts.localdatapath,num2string(f,8)); % location descriptor
         save ([image_dir,'/','sift_features'], 'features');           % save the descriptors
         
         fprintf('The %d th image finished...\n',f);
-        
-        
         
     end % for
     save ([opts.globaldatapath,'/',descriptor_opts.name,'_settings'],'descriptor_opts');      % save the settings of descriptor in opts.globaldatapath

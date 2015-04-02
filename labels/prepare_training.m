@@ -24,7 +24,7 @@ for i = 1 : num_class
     picgather = cell(row,1);
     
     for j = 1 : row
-        num_imgs = num_imgs + 1;
+        num_imgs = num_imgs + 1
         image_names{num_imgs} = ['training/', class_name,'/' picstr(j).name];
         labels(num_imgs, 1) = i;
         trainset(num_imgs, 1) = 1;

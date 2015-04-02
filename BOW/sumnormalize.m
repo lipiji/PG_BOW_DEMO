@@ -15,9 +15,4 @@ if dim==1
     end
     
 end
-
-
-
-
-
 end

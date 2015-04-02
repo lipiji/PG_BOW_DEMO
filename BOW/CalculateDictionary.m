@@ -26,12 +26,12 @@ if(dictionary_flag)
     
     niters=100;                     %maximum iterations
     
-    image_dir=sprintf('%s/%s/',opts.localdatapath,num2string(1,3)); % location descriptor
+    image_dir=sprintf('%s/%s/',opts.localdatapath,num2string(1,8)); % location descriptor
     inFName = fullfile(image_dir, sprintf('%s', featureName));
     load(inFName, 'features');
     data = features.data;
     
-    image_dir=sprintf('%s/%s/',opts.localdatapath,num2string(2,3)); % location descriptor
+    image_dir=sprintf('%s/%s/',opts.localdatapath,num2string(2,8)); % location descriptor
     inFName = fullfile(image_dir, sprintf('%s', 'sift_features'));
     load(inFName, 'features');
     data = [data;features.data];
@@ -61,7 +61,7 @@ if(dictionary_flag)
         
         for f = 1:nimages
             fprintf('The %d th interation the %d th image. eCenter=%f \n',n,f,e2);
-            image_dir=sprintf('%s/%s/',opts.localdatapath,num2string(f,3)); % location descriptor
+            image_dir=sprintf('%s/%s/',opts.localdatapath,num2string(f,8)); % location descriptor
             inFName = fullfile(image_dir, sprintf('%s',featureName));
             
             

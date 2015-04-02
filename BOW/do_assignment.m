@@ -24,7 +24,7 @@ if(assign_flag)
     %% apply assignment method to data set
     BOW=[];
     for ii=1:nimages
-        image_dir=sprintf('%s/%s/',opts.localdatapath,num2string(ii,3));                    % location where detector is saved
+        image_dir=sprintf('%s/%s/',opts.localdatapath,num2string(ii,8));                    % location where detector is saved
         inFName = fullfile(image_dir, sprintf('%s', featuretype));
         load(inFName, 'features');
         points = features.data;

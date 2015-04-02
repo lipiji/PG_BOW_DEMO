@@ -30,7 +30,7 @@ if(pyramid_flag)
         
         
         %% load texton indices
-        image_dir=sprintf('%s/%s/',opts.localdatapath,num2string(f,3)); % location descriptor
+        image_dir=sprintf('%s/%s/',opts.localdatapath,num2string(f,8)); % location descriptor
         inFName = fullfile(image_dir, sprintf('%s', texton_name));
         load(inFName, 'texton_ind');
         
