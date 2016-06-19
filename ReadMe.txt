@@ -44,6 +44,9 @@ S. Lazebnik, C. Schmid, and J. Ponce, "Beyond Bags of Features: Spatial
 Pyramid Matching for Recognizing Natural Scene Categories," CVPR 2006.
 
 Images from:
+Li, Piji, and Jun Ma. "What is happening in a still picture?." 
+In The First Asian Conference on Pattern Recognition, pp. 32-36. IEEE, 2011.
+
 Piji Li, Jun Ma, Shuai Gao. Actions in Still Web Images: Visualization, Detection and Retrieval. 
 The 12th International Conference on Web-Age InformationManagement (WAIM 2011). Springer, 2011.
 
